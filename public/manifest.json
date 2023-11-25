@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+
+  "name": "Bhasini Extension",
+
+  "version": "1.0.1",
+
+  "action": {
+    "default_popup": "index.html"
+  },
+
+  "icons": {
+    "16": "logo.png",
+    "32": "logo.png"
+  },
+  "permissions": ["scripting"],
+
+  "host_permissions": ["https://*/*", "https://*/*"]
+}

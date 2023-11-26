@@ -1,11 +1,11 @@
 import { useState } from "react";
-// import BhashiniTranslator from "@scaler-school-of-technology/bhashini-web-translator";
+import BhashiniTranslator from "@scaler-school-of-technology/bhashini-web-translator";
 import "./App.css";
 
-// const Bhashini = new BhashiniTranslator(
-//   "019a562b7f-bb9c-4440-8b79-11b170353130",
-//   "48115d2ab7f24c55b8b29af34806050c"
-// );
+const Bhashini = new BhashiniTranslator(
+  "019a562b7f-bb9c-4440-8b79-11b170353130",
+  "48115d2ab7f24c55b8b29af34806050c"
+);
 
 function App() {
   const [sourceLanguage, setSourceLanguage] = useState("");
@@ -20,24 +20,24 @@ function App() {
   };
 
   const handleTranslateClick = async () => {
-    // let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    // chrome.scripting.executeScript({
-    //   target: { tabId: tab.id },
-    //   function: async () => {
-    //     console.log(document.body);
-    //     document.body.style.backgroundColor = "red";
-    //     try {
-    //       const response = await Bhashini.translateDOM(
-    //         document.body,
-    //         "en",
-    //         "hi"
-    //       );
-    //       console.log(response);
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   },
-    // });
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      function: async () => {
+        console.log(document.body);
+        document.body.style.backgroundColor = "red";
+        try {
+          const response = await Bhashini.translateDOM(
+            document.body,
+            "en",
+            "hi"
+          );
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    });
   };
 
   return (
